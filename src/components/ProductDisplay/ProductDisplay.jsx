@@ -5,7 +5,7 @@ import stardull_icon from "../assets/star_dull_icon.png";
 import { shopContext } from "../../context/ShopContext";
 import { toast } from "react-toastify";
 
-const ProductDisplay = (props) => {
+const ProductDisplay = (props) =>  {
   const {AddToCart}=useContext(shopContext)
   const handleClick=(id)=>{
     AddToCart(id)
