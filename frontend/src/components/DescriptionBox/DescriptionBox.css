@@ -1,0 +1,32 @@
+
+.desription-section{
+    display: flex;
+    margin: 0px 170px;
+    width: 80%;
+    margin-bottom: 100px;
+}
+.DescriptionBox-navigator{
+    display: flex;
+    flex-direction: row;       
+}
+.navbox,.navbox-fade{
+    border: 1px solid #888;
+    padding: 20px;
+    color: #818181;
+    cursor: pointer;
+}
+.navbox:hover,.navbox-fade:hover{
+    background-color: #fcf7f7;
+}
+.navbox{
+    font-weight: 600;
+    color: black;
+}
+.description-box{
+    border: 1px solid #888;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
