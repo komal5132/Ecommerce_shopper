@@ -9,13 +9,13 @@
   padding: 0px 140px;
   margin-bottom: 100px;
   background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
-  gap: 30px;
-  /* margin-top: 400px; */
+  gap: 30px;   
 }
 .NewsLetter h1 {
   color: #454545;
   font-size: 55px;
   font-weight: 600;
+  margin-top: 20px;
 }
 .NewsLetter p{
     color: #454545;
@@ -48,4 +48,80 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+
+
+@media (max-width: 1280px){
+  .NewsLetter h1 {    
+    font-size: 40px;
+    margin-top: 20px;    
+  }
+  .NewsLetter p{      
+      font-size: 18px;
+  }
+  .NewsLetter div{    
+    width: 700px;
+    height: 60px;    
+}
+.NewsLetter button{
+  width: 200px;
+  height: 59px; 
+  font-size: 16px; 
+}
+
+}
+
+@media (max-width: 1024px){
+  .NewsLetter h1 {    
+    font-size: 30px;
+    margin-top: 20px;    
+  }
+  .NewsLetter p{      
+      font-size: 15px;
+  }
+  .NewsLetter div{    
+    width: 650px;
+    height: 50px;    
+}
+.NewsLetter button{
+  width: 200px;
+  height: 50px; 
+  font-size: 16px; 
+}
+}
+
+@media (max-width: 850px){
+  .NewsLetter{
+    width: 50%;
+  }
+  .NewsLetter div{    
+    width: 600px;
+    height: 50px;    
+}
+.NewsLetter button{
+  width: 200px;
+  height: 50px; 
+  font-size: 16px; 
+}
+}
+
+@media (max-width: 500px){
+  .NewsLetter h1 {    
+    font-size: 15px;  
+  }
+  .NewsLetter p{      
+      font-size: 10px;
+  }
+  .NewsLetter{
+    width: 30%;
+  }
+  .NewsLetter div{    
+    width: 350px;
+    height: 40px;    
+}
+.NewsLetter button{
+  width: 200px;
+  height: 50px; 
+  font-size: 16px; 
+}
 }

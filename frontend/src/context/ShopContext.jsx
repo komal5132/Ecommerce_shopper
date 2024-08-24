@@ -44,13 +44,26 @@ const ShopContextProvider = (props) => {
     }
   };  
 
+  const cartTotal=()=>{
+    let total=0
+    for(const item of cart){
+      if(item.quantity>0){
+        total += item.quantity*item.new_price        
+      }
+    } 
+    return total   
+  }  
+
+  
+
   const contextValue = {
     all_products,
     data_product,
     cart,
     setCart,
     AddToCart,
-    removeProduct
+    removeProduct,
+    cartTotal
   };
 
   return (

@@ -9,6 +9,7 @@ const ShopCategory = (props) => {
   return (
     <div className="ShopCategory">
       <img className="bannerImage" src={props.banner} alt="" />
+      <div className="shopCategory-full">
       <div className="shopategory-indexSort">
         <p><span>Showing 1-12</span> out of 36 products</p>
         <div className="shopCategory-sort">
@@ -34,6 +35,7 @@ const ShopCategory = (props) => {
       </div>
       <div className="loadMore-btn">
         <button>Explore more</button>
+      </div>
       </div>
     </div>
   );

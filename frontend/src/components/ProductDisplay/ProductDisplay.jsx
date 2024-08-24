@@ -3,7 +3,6 @@ import "./ProductDisplay.css";
 import star_icon from "../assets/star_icon.png";
 import stardull_icon from "../assets/star_dull_icon.png";
 import { shopContext } from "../../context/ShopContext";
-import { toast } from "react-toastify";
 
 const ProductDisplay = (props) =>  {
   const {AddToCart}=useContext(shopContext)

@@ -30,3 +30,61 @@
     gap: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+@media (max-width:1280px) {
+    .desription-section{        
+        margin: 0px 150px;
+    }
+    .description-box{
+        font-size: 14px;
+    }
+    .navbox,.navbox-fade{
+        font-size: 14px;
+    }
+}
+
+@media (max-width:1024px) {
+    .desription-section{        
+        margin: 0px 130px;
+        margin-bottom: 50px;
+    }
+    .description-box{
+        font-size: 12px;
+    }
+    .navbox,.navbox-fade{
+        font-size: 12px;
+    }
+}
+
+@media (max-width:800px) {
+    .desription-section{        
+        margin: 0px 100px;
+        margin-bottom: 50px;
+    }
+    .description-box{
+        font-size: 10px;
+    }
+    .navbox,.navbox-fade{
+        font-size: 11px;
+    }
+}
+
+@media (max-width:650px) {
+    .desription-section{        
+        margin: 0px 80px;
+        margin-bottom: 50px;
+    }
+    .description-box{
+        font-size: 10px;
+    }
+    .navbox,.navbox-fade{
+        font-size: 11px;
+    }
+}
+
+
+@media (max-width:500px) {
+    .desription-section{
+        display: none;
+    }
+}

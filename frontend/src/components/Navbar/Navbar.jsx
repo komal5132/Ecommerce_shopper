@@ -1,12 +1,39 @@
-import React, { useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./Navbar.css";
-
+import { IoIosArrowDropdown } from "react-icons/io";
 import logo from "../assets/logo.png";
 import cartIcon from "../assets/cart_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { shopContext } from "../../context/ShopContext";
+
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("shop");
+  const {cart}=useContext(shopContext)
+  const [menu, setMenu] = useState("shop");  
+  const navigate=useNavigate()
+
+  const handleMenuChange = (event) => {
+    const selectedValue = event.target.value;
+    setMenu(selectedValue);
+
+    switch (selectedValue) {
+      case "shop":
+        navigate("/");
+        break;
+      case "men":
+        navigate("/men");
+        break;
+      case "women":
+        navigate("/women");
+        break;
+      case "kid":
+        navigate("/kid");
+        break;
+      default:
+        break;
+    }
+  };
+
 
   return (
     <div className="Navbar">
@@ -16,7 +43,14 @@ const Navbar = () => {
           <p>SHOPPER</p>
         </div>
       </Link>
-      <ul className="nav-menu">
+      <select name="menu" id="menu" value={menu} onChange={handleMenuChange} className="selection-menu active-select">
+        <option value="select category">select category</option>
+        <option value="shop">shop</option>
+        <option value="men">men</option>
+        <option value="women">women</option>
+        <option value="kid">kid</option>
+      </select>
+      <ul className="nav-menu active-menu">
         <li onClick={() => setMenu("shop")}>
           <Link style={{ textDecoration: "none" }} to="/">
             Shop
@@ -50,7 +84,7 @@ const Navbar = () => {
           <img src={cartIcon} alt="" />
         </Link>
 
-        <div className="nav-cart-count">0</div>
+        <div className="nav-cart-count">{cart.length}</div>
       </div>
     </div>
   );

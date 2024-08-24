@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./CartTotalDisplay.css"
+import { shopContext } from '../../context/ShopContext'
 
 const CartTotalDisplay = () => {
+    const {cartTotal}=useContext(shopContext)
   return (
     <div className='CartTotalDisplay'>
         <div className="cartTotaldisplay-left">
             <h2>Cart Totals</h2>
             <div className="left-div-part subtotal-div">
                 <p>Subtotal</p>
-                <p>$145</p>
+                <p>${cartTotal()}</p>
             </div>
             <hr />
             <div className="left-div-part shipping-div">
@@ -18,7 +20,7 @@ const CartTotalDisplay = () => {
             <hr />
             <div className="left-div-part total-div">
                 <p>Total</p>
-                <p>$145</p>
+                <p>${cartTotal()}</p>
             </div>
             <button>PROCEED TO CHECKOUT</button>
         </div>

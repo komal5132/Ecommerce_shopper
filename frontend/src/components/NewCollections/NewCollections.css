@@ -26,3 +26,39 @@
     width: 300px;
     margin-left: 20px;
 }
+
+@media (max-width: 1280px){
+    .collections{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;    
+        margin-top: 40px;
+        gap: 10px;
+    }   
+    .NewCollections h1{
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 1024px){
+    .collections{
+        display: grid;
+        grid-template-columns: 1fr 1fr ;    
+        margin-top: 40px;
+        gap: 10px;
+    }   
+}
+
+@media (max-width: 650px){
+    .collections{
+        display: grid;
+        grid-template-columns: 1fr  ;    
+        margin-top: 40px;
+        gap: 10px;
+    }  
+    .NewCollections h1{
+        font-size: 30px;
+    }
+    .NewCollections{
+        height: 550vh;
+    }
+}
