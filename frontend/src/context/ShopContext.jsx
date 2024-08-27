@@ -54,7 +54,7 @@ const ShopContextProvider = (props) => {
     return total   
   }  
 
-  
+console.log(cart)  
 
   const contextValue = {
     all_products,
