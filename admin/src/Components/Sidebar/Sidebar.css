@@ -1,0 +1,34 @@
+.Sidebar{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 300px;    
+}
+.sidebarsection{
+display: flex;
+}
+.sidebar-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0px;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 170px;
+    background-color: #ece9e9;
+}
+.sidebar-btn img{
+    width: 25px;
+}
+hr{
+    width: 1px;
+    background-color: lightslategrey;
+    border: none;
+    margin: 0;
+}

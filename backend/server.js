@@ -11,7 +11,7 @@ const port = process.env.PORT_NO;
 app.use(express.json());
 app.use(cors());
 app.use("/api/shop", ShopRouter);
-app.use("images", express.static("uploads"));
+app.use("/images", express.static("uploads"));
 
 mongoose.connect(db_uri).then(() => {
   console.log("data base is connected");

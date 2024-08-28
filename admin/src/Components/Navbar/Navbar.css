@@ -1,0 +1,14 @@
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 60px;
+  align-items: center;
+}
+.navbar-section {
+  display: flex;
+  flex-direction: column;
+}
+.Navbar hr {
+  width: 200px;
+}
