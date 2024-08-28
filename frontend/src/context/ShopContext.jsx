@@ -54,7 +54,10 @@ const ShopContextProvider = (props) => {
     return total   
   }  
 
-console.log(cart)  
+  const setToken = (token) => {
+    localStorage.setItem("token", token);
+  };
+  
 
   const contextValue = {
     all_products,
@@ -63,7 +66,8 @@ console.log(cart)
     setCart,
     AddToCart,
     removeProduct,
-    cartTotal
+    cartTotal,
+    setToken
   };
 
   return (

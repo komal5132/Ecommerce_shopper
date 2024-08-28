@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const ShopRouter = require("./Routes/shopRoutes");
+const userRouter = require("./Routes/userRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -11,6 +12,7 @@ const port = process.env.PORT_NO;
 app.use(express.json());
 app.use(cors());
 app.use("/api/shop", ShopRouter);
+app.use("/api/user",userRouter)
 app.use("/images", express.static("uploads"));
 
 mongoose.connect(db_uri).then(() => {
