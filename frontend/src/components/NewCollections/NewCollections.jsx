@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./NewCollections.css";
 import new_collections from "../assets/new_collections";
 import Item from "../Item/Item";
+import { shopContext } from "../../context/ShopContext";
+
 
 const NewCollections = () => {
-  console.log("check new==",new_collections)
+  const {new_collections,url}=useContext(shopContext)
   return (
     <section className="new-Collection-section">
       <div className="NewCollections">
@@ -15,9 +17,9 @@ const NewCollections = () => {
             return (
               <Item
                 key={i}
-                id={item.id}
+                id={item.productId}
                 name={item.name}
-                image={item.image}
+                image={`${url}/images/${item.image}`}
                 new_price={item.new_price}
                 old_price={item.old_price}
               />

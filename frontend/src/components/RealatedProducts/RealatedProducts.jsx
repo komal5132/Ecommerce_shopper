@@ -4,7 +4,7 @@ import { shopContext } from "../../context/ShopContext";
 import Item from "../Item/Item";
 
 const RealatedProducts = () => {
-  const { data_product } = useContext(shopContext);
+  const { data_product,url } = useContext(shopContext);
   return (
     <div className="RealatedProducts">
       <div className="heading-realted">
@@ -16,9 +16,9 @@ const RealatedProducts = () => {
         return (
           <Item
             key={i}
-            id={item.id}
+            id={item.productId}
             name={item.name}
-            image={item.image}
+            image={`${url}/images/${item.image}`}
             new_price={item.new_price}
             old_price={item.old_price}
           />

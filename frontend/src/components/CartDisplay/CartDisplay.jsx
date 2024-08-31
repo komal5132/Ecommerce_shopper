@@ -4,15 +4,9 @@ import { shopContext } from "../../context/ShopContext";
 import remove_icon from "../assets/cart_cross_icon.png"
 
 const CartDisplay = (props) => {
-  const { cart, setCart,removeProduct,showCart,url } = useContext(shopContext);
-  useEffect(() => {
-    showCart().then(data => {
-      if (data) {
-        setCart(data);
-      }
-    });
-  }, []);
-  return (
+  const { cart,removeProduct,url } = useContext(shopContext);
+  console.log("cart coming from context",cart)
+   return (
     <div className="CartDisplay">
       <div className="cart-display-parts upper-part">
         <p>Products</p>
@@ -25,7 +19,7 @@ const CartDisplay = (props) => {
       <hr />
       {cart.map((item, i) => {
         return <div className="cart-display-parts lower-part">
-            <div className="cart-img" key={item.productId}>
+            <div className="cart-img" key={item._id}>
                 <img src={`${url}/images/${item.image}`} alt="" />
             </div>
             <div className="cart-description">
@@ -34,7 +28,7 @@ const CartDisplay = (props) => {
             <div className="price">${item.new_price}</div>
             <div className="quantity-div">{item.quantity}</div>
             <div className="total-div">${item.new_price*item.quantity}</div>
-            <div onClick={()=>removeProduct(item.id)} className="remove-div"><img src={remove_icon} alt="" /></div>
+            <div onClick={()=>removeProduct(item._id)} className="remove-div"><img src={remove_icon} alt="" /></div>
         </div>;
       })}
       <hr />

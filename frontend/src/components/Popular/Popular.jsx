@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Popular.css";
-import data from "../assets/data";
 import Item from "../Item/Item";
+import { shopContext } from "../../context/ShopContext";
 
 const Popular = () => {
+  const {data,url}=useContext(shopContext)
   return (
     <div className="Popular">
       <h1>POPULAR IN WOMEN</h1>
@@ -13,9 +14,9 @@ const Popular = () => {
           return (
             <Item
               key={i}
-              id={item.id}
+              id={item.productId}
               name={item.name}
-              image={item.image}
+              image={`${url}/images/${item.image}`}
               new_price={item.new_price}
               old_price={item.old_price}
             />

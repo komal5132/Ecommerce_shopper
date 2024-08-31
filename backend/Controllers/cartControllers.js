@@ -7,15 +7,9 @@ const addProduct = async (req, res) => {
     if (!user) {
       return res.json({ success: false, message: "User not found" });
     }
-
-    // Ensure cartData is an object
     let cartData = user.cartdata || {};
-
-    // Convert itemId to string to ensure it works as an object key
-    const itemId = String(req.body.itemId);
-
-    console.log("ItemId:", itemId);  // Debugging log
-
+    const itemId = req.body.itemId;
+    console.log("ItemId:", itemId);
     if (!itemId) {
       return res.json({ success: false, message: "Invalid item ID" });
     }
@@ -47,10 +41,25 @@ const removeProduct = async (req, res) => {
   res.json({ success: true, message: "item delted" });
 };
 
+// const fetchProducts = async (req, res) => {
+//   const user = await userModel.findOne({ _id: req.body.userId });
+//   const cartData = await user.cartdata;
+//   res.json({ success: true, userId: req.body.userId, cardata: cartData });
+// };
+
 const fetchProducts = async (req, res) => {
-  const user = await userModel.findOne({ _id: req.body.userId });
-  const cartData = await user.cartdata;
-  res.json({ success: true, userId: req.body.userId, cardata: cartData });
+  try {
+    const user = await userModel.findOne({ _id: req.body.userId });
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+    const cartData = user.cartdata || {}; // Ensure cartdata exists
+    res.json({ success: true, data: cartData });
+  } catch (error) {
+    console.error("Error fetching cart data:", error);
+    res.json({ success: false, message: "Error fetching cart data" });
+  }
 };
+
 
 module.exports = { addProduct, removeProduct, fetchProducts };

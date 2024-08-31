@@ -49,6 +49,7 @@ const LogInSignUp = () => {
         cartdata:{}
       });
       navigate('/')
+      console.log("data of user",data)
     } catch (error) {
       console.log(error);
       alert("problem");
