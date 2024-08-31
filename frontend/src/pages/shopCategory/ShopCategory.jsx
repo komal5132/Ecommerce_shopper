@@ -5,7 +5,8 @@ import dropDown from "../../components/assets/dropdown_icon.png"
 import Item from "../../components/Item/Item";
 
 const ShopCategory = (props) => {
-  const { all_products } = useContext(shopContext);
+  const { all_products ,url} = useContext(shopContext);
+  console.log("check data",all_products)
   return (
     <div className="ShopCategory">
       <img className="bannerImage" src={props.banner} alt="" />
@@ -21,9 +22,9 @@ const ShopCategory = (props) => {
           if(props.category==item.category){
             return <Item
             key={i}
-            id={item.id}
+            id={item.productId}
             name={item.name}
-            image={item.image}
+            image={`${url}/images/${item.image}`}
             new_price={item.new_price}
             old_price={item.old_price}
           />

@@ -31,7 +31,7 @@ const loginUser = async (req, res) => {
 
 const registerUser = async (req, res) => {
   try {
-    const { name, password, email } = req.body;
+    const { name, password, email, cartdata = {} } = req.body;
 
     const exists = await userModel.findOne({ email });
     if (exists) {
@@ -53,6 +53,7 @@ const registerUser = async (req, res) => {
       name: name,
       email: email,
       password: hashedPassword,
+      cartdata,
     });
 
     const user = await newUser.save();

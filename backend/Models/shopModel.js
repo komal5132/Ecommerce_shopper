@@ -5,7 +5,8 @@ const ProductSchema=new mongoose.Schema({
     category:{type:String,required:true},
     old_price:{type:Number,required:true},
     new_price:{type:Number,required:true},
-    image:{type:String,required:true}
+    image:{type:String,required:true},
+    productId:{type:Number,required:true}
 })
 
 const shopModel=mongoose.models.shop || mongoose.model("shop",ProductSchema)

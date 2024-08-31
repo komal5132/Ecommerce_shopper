@@ -5,7 +5,7 @@ import stardull_icon from "../assets/star_dull_icon.png";
 import { shopContext } from "../../context/ShopContext";
 
 const ProductDisplay = (props) =>  {
-  const {AddToCart}=useContext(shopContext)
+  const {AddToCart,url}=useContext(shopContext)
   const handleClick=(id)=>{
     AddToCart(id)
     alert("product added to cart")
@@ -16,13 +16,13 @@ const ProductDisplay = (props) =>  {
       <div className="ProductDisplay">
         <div className="product-display-left">
           <div className="grp-images">
-            <img src={product.image} alt="" />
-            <img src={product.image} alt="" />
-            <img src={product.image} alt="" />
-            <img src={product.image} alt="" />
+            <img src={`${url}/images/${product.image}`} alt="" />
+            <img src={`${url}/images/${product.image}`} alt="" />
+            <img src={`${url}/images/${product.image}`} alt="" />
+            <img src={`${url}/images/${product.image}`} alt="" />
           </div>
           <div className="single-large-img">
-            <img src={product.image} alt="" />
+            <img src={`${url}/images/${product.image}`} alt="" />
           </div>
         </div>
         <div className="product-display-right">
@@ -55,7 +55,7 @@ const ProductDisplay = (props) =>  {
               <button>XL</button>
               <button>XXL</button>
             </div>
-            <button className="add-to-cart-btn" onClick={()=>handleClick(product.id)}>ADD TO CART</button>
+            <button className="add-to-cart-btn" onClick={()=>handleClick(product._id)}>ADD TO CART</button>
           </div>
           <div className="category-div">
             <p>

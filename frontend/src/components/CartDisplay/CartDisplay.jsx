@@ -1,10 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import "./CartDisplay.css";
 import { shopContext } from "../../context/ShopContext";
 import remove_icon from "../assets/cart_cross_icon.png"
 
 const CartDisplay = (props) => {
-  const { cart, setCart,removeProduct } = useContext(shopContext);
+  const { cart, setCart,removeProduct,showCart,url } = useContext(shopContext);
+  useEffect(() => {
+    showCart().then(data => {
+      if (data) {
+        setCart(data);
+      }
+    });
+  }, []);
   return (
     <div className="CartDisplay">
       <div className="cart-display-parts upper-part">
@@ -18,8 +25,8 @@ const CartDisplay = (props) => {
       <hr />
       {cart.map((item, i) => {
         return <div className="cart-display-parts lower-part">
-            <div className="cart-img" key={item.id}>
-                <img src={item.image} alt="" />
+            <div className="cart-img" key={item.productId}>
+                <img src={`${url}/images/${item.image}`} alt="" />
             </div>
             <div className="cart-description">
                 <p>{item.name}</p>

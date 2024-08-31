@@ -13,6 +13,7 @@ const LogInSignUp = () => {
     name: "",
     email: "",
     password: "",
+    cartdata:{}
   });
 
   const handleChange = (e) => {
@@ -45,6 +46,7 @@ const LogInSignUp = () => {
         name: "",
         email: "",
         password: "",
+        cartdata:{}
       });
       navigate('/')
     } catch (error) {

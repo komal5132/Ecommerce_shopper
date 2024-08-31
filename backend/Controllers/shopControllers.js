@@ -1,7 +1,10 @@
 const shopModel = require("../Models/shopModel.js");
-const fs=require("fs")
+const fs = require("fs");
 
 const addProduct = async (req, res) => {
+  const count = await shopModel.countDocuments();
+  const productId=count+1
+
   let image_fileName = `${req.file.filename}`;
 
   const shop = new shopModel({
@@ -10,6 +13,7 @@ const addProduct = async (req, res) => {
     old_price: req.body.old_price,
     new_price: req.body.new_price,
     image: image_fileName,
+    productId:productId
   });
 
   try {
@@ -24,8 +28,8 @@ const addProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
   try {
     const product = await shopModel.findById(req.body.id);
-    fs.unlink(`uploads/${product.image}`,()=>{})
-    await shopModel.findByIdAndDelete(req.body.id)
+    fs.unlink(`uploads/${product.image}`, () => {});
+    await shopModel.findByIdAndDelete(req.body.id);
     res.json({ success: true, message: "product deleted" });
   } catch (error) {
     console.log(error);
@@ -33,14 +37,14 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-const getAllProducts=async(req,res)=>{
-   try {
-    const product=await shopModel.find()
-    res.json({success:true,data:product})
-   } catch (error) {
-    console.log(error)
-    res.json({success:false,message:"something went wrong"})
-   }
-}
+const getAllProducts = async (req, res) => {
+  try {
+    const product = await shopModel.find();
+    res.json({ success: true, data: product });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "something went wrong" });
+  }
+};
 
-module.exports = { addProduct,deleteProduct,getAllProducts };
+module.exports = { addProduct, deleteProduct, getAllProducts };

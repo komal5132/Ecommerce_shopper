@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { shopContext } from "../../context/ShopContext";
 
 const Navbar = () => {
-  const { cart } = useContext(shopContext);
+  const { cart,setCart } = useContext(shopContext);
   const [menu, setMenu] = useState("shop");
   const navigate = useNavigate();
 
@@ -35,6 +35,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    setCart([])
     navigate("/"); // Redirect to home after logout
   };
 

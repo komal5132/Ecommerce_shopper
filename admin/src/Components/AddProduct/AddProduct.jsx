@@ -116,6 +116,7 @@ const AddProduct = () => {
             value={productData.category}
             id=""
           >
+            <option value="select">select</option>
             <option value="men">men</option>
             <option value="women">women</option>
             <option value="kid">kid</option>

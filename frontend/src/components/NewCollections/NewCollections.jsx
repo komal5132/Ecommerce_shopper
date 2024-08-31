@@ -4,6 +4,7 @@ import new_collections from "../assets/new_collections";
 import Item from "../Item/Item";
 
 const NewCollections = () => {
+  console.log("check new==",new_collections)
   return (
     <section className="new-Collection-section">
       <div className="NewCollections">

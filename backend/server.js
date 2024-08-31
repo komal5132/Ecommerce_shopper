@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const ShopRouter = require("./Routes/shopRoutes");
 const userRouter = require("./Routes/userRoutes");
+const cartRouter = require("./Routes/cartRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/shop", ShopRouter);
 app.use("/api/user",userRouter)
+app.use("/api/cart",cartRouter)
 app.use("/images", express.static("uploads"));
 
 mongoose.connect(db_uri).then(() => {
